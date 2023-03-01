@@ -1,16 +1,30 @@
-# Lab 3: INSERT_YOUR_FIRSTNAME INSERT_YOUR_LASTNAME
+# Lab 3: NhatTruongNguyen
 
 ### Three-bit wide 4-to-1 multiplexer
 
 1. Listing of VHDL architecture from source file `mux_3bit_4to1.vhd`. Always use syntax highlighting, meaningful comments, and follow VHDL guidelines:
 
 ```vhdl
+entity mux_3bit_4to1 is
+    Port ( a_i : in STD_LOGIC_VECTOR (2 downto 0);
+           b_i : in STD_LOGIC_VECTOR (2 downto 0);
+           c_i : in STD_LOGIC_VECTOR (2 downto 0);
+           d_i : in STD_LOGIC_VECTOR (2 downto 0);
+           sel_i : in STD_LOGIC_VECTOR (1 downto 0);
+           f_o : out STD_LOGIC_VECTOR (2 downto 0));
+end mux_3bit_4to1;
+
 architecture Behavioral of mux_3bit_4to1 is
+
 begin
 
-    -- WRITE YOUR CODE HERE
+with sel_i select
+    f_o <= a_i when "000",  -- If addr_i = "000" then y_o = a_i
+           b_i when "001",
+           c_i when "010",
+           d_i when others; -- All other combinations
 
-end architecture Behavioral;
+end Behavioral;
 ```
 
 2. Screenshot with simulated time waveforms. Always display all inputs and outputs (display the inputs at the top of the image, the outputs below them) at the appropriate time scale!
